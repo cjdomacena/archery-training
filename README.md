@@ -1,13 +1,13 @@
 # Archery scorecard
 
 ### Requirements
-- [ ] Simple scoring
+- [x] Simple scoring
 - Scoring goes from X -> M where X = inside bullseye ring; M = missed
 - Scoring list highest to lowest (Can be toggled on/off later)
 
 
 ### User input 
-- [ ] Ask for how many arrows per round
+- [x] Ask for how many arrows per round
 
 
 ### Output
