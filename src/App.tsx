@@ -9,7 +9,7 @@ const SCORES = Array.from({ length: 10 }).map(
   (_, i) => 10 - i,
 );
 
-function calculateTotal(values: string[]) {
+function calculateTotal(values: (string | number)[]) {
   let total = 0;
   values.forEach((score) => {
     if (score === 'X')
@@ -44,9 +44,9 @@ function getMisses(values: string[]) {
   }, 0)
 }
 
-function getRunningTotal(scoreList: Map<string, unknown[]>) {
+function getRunningTotal(scoreList: Map<number, (string | number)[]>) {
   let runningTotal = 0;
-  scoreList.forEach((val, key) => {
+  scoreList.forEach((val) => {
     runningTotal += calculateTotal(val)
   });
   return runningTotal;
@@ -60,8 +60,8 @@ function App() {
   const [activeShotCount, setActiveShotCount] = useState(0);
   const [activeRound, setActiveRound] = useState(1);
   const [activeRoundScores, setActiveRoundScores] =
-    useState(
-      Array.from({ length: arrowCount }).fill(0),
+    useState<(string | number)[]>(
+      Array.from({ length: arrowCount }, () => 0),
     );
   const [activeRunningScoreList, setActiveRunningScoreList] = useState(new Map());
 
@@ -76,7 +76,7 @@ function App() {
   function resetToNewRound() {
     endRound();
     setActiveRound(prev => prev + 1);
-    setActiveRoundScores(Array.from({ length: arrowCount }).fill(0));
+    setActiveRoundScores(Array.from({ length: arrowCount }, () => 0));
     setActiveShotCount(0);
   }
 
@@ -141,7 +141,7 @@ function App() {
                     const newCount = Number(e.currentTarget.value);
                     setArrowCount(newCount);
                     setActiveRoundScores(
-                      Array.from({ length: newCount }).fill(0)
+                      Array.from({ length: newCount }, () => 0)
                     );
                   }}
                 />

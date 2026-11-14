@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 
 export default function useLocalStorage({ key, initialValue }: { key: string, initialValue?: unknown }) {
 	const ls = window.localStorage;
@@ -8,8 +8,8 @@ export default function useLocalStorage({ key, initialValue }: { key: string, in
 
 	const get = useCallback(() => {
 		const val = ls.getItem(key);
-		return JSON.parse(val);
-	}, []);
+		return val === null ? initialValue : JSON.parse(val);
+	}, [initialValue, key, ls]);
 
 	return { get, set }
 }
