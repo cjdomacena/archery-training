@@ -20,6 +20,7 @@
 |--------|---------------------------|
 | 10     | Scored 10 (within yellow) |
 | X      | Inside bullseye           |
+| M      | Missed           |
 
 TODO:
 
