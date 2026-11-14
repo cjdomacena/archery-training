@@ -20,3 +20,8 @@
 |--------|---------------------------|
 | 10     | Scored 10 (within yellow) |
 | X      | Inside bullseye           |
+
+TODO:
+
+- [ ] Add historical chart
+- [ ] Chart progress
