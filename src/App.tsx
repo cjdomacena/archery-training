@@ -13,13 +13,16 @@ const SCORES = Array.from({ length: 10 }, (_, index) => 10 - index);
 function App() {
   const { get, set } = useLocalStorage({ key: "archery-session" });
   const [sessions, setSessions] = useState<Session[]>(() => {
-    try {
+    try
+    {
       const saved = get();
       if (Array.isArray(saved)) return saved as Session[];
-      if (saved && typeof saved === "object" && "date" in saved && "data" in saved) {
+      if (saved && typeof saved === "object" && "date" in saved && "data" in saved)
+      {
         return [saved as Session];
       }
-    } catch {
+    } catch
+    {
       return [];
     }
     return [];
@@ -84,7 +87,8 @@ function App() {
 
   function saveSession() {
     const rounds = Array.from(activeRunningScoreList.entries());
-    if (activeShotCount > 0) {
+    if (activeShotCount > 0)
+    {
       rounds.push([activeRound, activeRoundScores.slice(0, activeShotCount)]);
     }
     if (rounds.length === 0) return;
@@ -128,7 +132,6 @@ function App() {
       </nav>
       <SessionsSidebar sessions={sessions} open={sessionsOpen} onClose={() => setSessionsOpen(false)} />
       <main className="mx-auto min-h-screen w-full max-w-6xl px-5 py-10 sm:px-8 lg:py-14">
-
 
         {/* Header */}
         <Header />
