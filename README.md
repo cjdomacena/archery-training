@@ -5,11 +5,6 @@
 - Scoring goes from X -> M where X = inside bullseye ring; M = missed
 - Scoring list highest to lowest (Can be toggled on/off later)
 
-
-### User input 
-- [ ] Ask for how many arrows per round
-
-
 ### Output
 
 | End | Scores  | End total           | Running total |
@@ -22,6 +17,7 @@
 | X      | Inside bullseye           |
 
 TODO:
-
+- [ ] Use target to plot points
 - [ ] Add historical chart
-- [ ] Chart progress
+- [ ] target heatmaps
+- [ ] Weekly progress
